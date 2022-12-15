@@ -1,28 +1,22 @@
 #include "main.h"
 
 /**
- * more_numbers - prints 01234567891011121314\n x10
- *
- * Return: void
+ * more_numbers -  checks for checks for a digit (0 through 9).
+ * Return: Always 0.
  */
-
-
 void more_numbers(void)
 {
-	char a, b, c, i;
+	int a, b;
 
-	for (i = 0; i < 10; i++)
+	for (a = 0; a < 10; a++)
 	{
-		for (c = 0; c <= 14; c++)
+		for (b = 0; b < 15; b++)
 		{
-			if (c < 10)
-				b = c;
-			else
+			if (b / 10 != 0)
 			{
-				a = c / 10; b = c % 10;
-				_putchar('0' + a);
+				_putchar(b / 10 + '0');
 			}
-			_putchar('0' + b);
+			_putchar(b % 10 + '0');
 		}
 		_putchar('\n');
 	}
