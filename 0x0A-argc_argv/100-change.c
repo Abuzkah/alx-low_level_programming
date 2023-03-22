@@ -1,20 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
- *main - funtion
- *@argc: legenth of argv
- *@argv: number of argummet
- *Return: Always 0
+ * main - prints the minimum number of coins to
+ * make change for an amount of money
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: 0 (Success), 1 (Error)
  */
-
 int main(int argc, char *argv[])
 {
-	/*Declaring variables*/
-	int position, total, change, aux;
-	int coins[] = {25, 10, 5, 2, 1}; /*Array int*/
-
-	position = total = change = aux = 0;
+	int num, j, result;
+	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
@@ -22,31 +21,24 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	total = atoi(argv[1]); /*Convert str to int*/
+	num = atoi(argv[1]);
+	result = 0;
 
-	if (total <= 0)
+	if (num < 0)
 	{
 		printf("0\n");
 		return (0);
 	}
 
-	/*Declaring WHILE*/
-
-	while (coins[position] != '\0')
-
+	for (j = 0; j < 5 && num >= 0; j++)
 	{
-		if (total >= coins[position])
+		while (num >= coins[j])
 		{
-			aux = (total / coins[position]);
-			change += aux;
-			total -= coins[position] * aux;
+			result++;
+			num -= coins[j];
 		}
-
-		position++;
-
 	}
 
-	printf("%d\n", change);
+	printf("%d\n", result);
 	return (0);
 }
-

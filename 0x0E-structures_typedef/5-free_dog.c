@@ -2,10 +2,9 @@
 #include "dog.h"
 
 /**
- * free_dog - initialize a variable of type struct dog
- * @d: dog's details
+ * free_dog - frees memory allocated for a struct dog
+ * @d: struct dog to free
  */
-
 void free_dog(dog_t *d)
 {
 	if (d)
